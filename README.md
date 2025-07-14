@@ -112,9 +112,7 @@ sudo apt-get install jenkins -y
                        --ssh-access \
                        --ssh-public-key=eks-nodegroup-key 
   ```
-> [!Note]
->  Make sure the ssh-public-key "eks-nodegroup-key is available in your aws account"
-#
+
 - <b id="Jenkins-worker">Setting up jenkins worker node</b>
   - Create a new EC2 instance (Jenkins Worker) with 2CPU, 8GB of RAM (t2.large) and 29 GB of storage and install java on it
   ```bash
@@ -290,7 +288,7 @@ sudo apt-get install trivy -y
 #
 - <b> Go to <mark> Manage Jenkins --> credentials</mark> and add Github credentials to push updated code from the pipeline:</b>
 ![image](https://github.com/user-attachments/assets/4d0c1a47-621e-4aa2-a0b1-71927fcdaef4)
-> [!Note]
+> [!]
 > While adding github credentials add Personal Access Token in the password field.
 #
 - <b>Go to <mark> Manage Jenkins --> System</mark> and search for SonarQube installations:</b>
@@ -360,7 +358,7 @@ chmod 777 /var/run/docker.sock
 ![image](https://github.com/user-attachments/assets/cc8728e5-546b-4c46-bd4c-538f4cd6a63d)
 ![image](https://github.com/user-attachments/assets/eb3646e2-db84-4439-a11a-d4168080d9cc)
 ![image](https://github.com/user-attachments/assets/a07f8703-5ef3-4524-aaa7-39a139335eb7)
-> [!Note]
+> [!]
 > Connection should be successful
 
 - <b>Now, go to <mark>Applications</mark> and click on <mark>New App</mark></b>
@@ -473,7 +471,7 @@ kubectl get svc -n prometheus
 ```bash
 kubectl get secret --namespace prometheus stable-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
-> [!Note]
+> [!]
 > Username: admin
 
 #
@@ -483,12 +481,4 @@ kubectl get secret --namespace prometheus stable-grafana -o jsonpath="{.data.adm
 ![image](https://github.com/user-attachments/assets/13321ee5-5d7b-4976-b409-25d3b865a42a)
 ![image](https://github.com/user-attachments/assets/75a22e4b-ae81-4cad-9c92-21dd90d126a8)
 
-#
-## Clean Up
-- <b id="Clean">Delete eks cluster</b>
-```bash
-eksctl delete cluster --name=wanderlust --region=us-west-1
-```
-
-#
 
